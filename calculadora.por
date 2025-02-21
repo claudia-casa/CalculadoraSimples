@@ -24,18 +24,28 @@ programa {
 funcao calcular(cadeia operacao) {
 se (operacao == "+"){
   resultado = n1 + n2
+}senao se(operacao == "-"){
+  resultado = n1 - n2
 }
 }
 
 funcao exibirResultado(){
   excreva(" Resultado:", resultado, "\n")
-  esperarTeclaEnter("")
+  esperarTeclaEnter(" ")
 }
 
   funcao somar() {
     lerNumeros()
     calcular("+")
     resultado = n1 + n2 // Calcula a soma
+    escreva("\n Resultado: ", resultado) // Exibe o resultado
+    esperarTeclaEnter("") // Espera Enter após exibir o resultado
+  }
+
+  funcao subtrair() {
+    lerNumeros()
+    calcular("-")
+    resultado = n1 - n2 // Calcula a soma
     escreva("\n Resultado: ", resultado) // Exibe o resultado
     esperarTeclaEnter("") // Espera Enter após exibir o resultado
   }
@@ -49,6 +59,7 @@ funcao exibirResultado(){
       escreva("Escolha uma operação:\n") // Adiciona dois pontos para melhor formatação
       escreva(" 0. Encerrar aplicativo\n")
       escreva(" 1. Somar\n")
+      escreva(" 2. Subtrair\n")
       escreva("Opção: ")
       leia(opcao)
 
@@ -56,6 +67,8 @@ funcao exibirResultado(){
         escreva("\n Aplicativo encerrado.") // Mensagem de encerramento
       } senao se (opcao == 1) {
         somar()
+      } senao se (opcao ==2){
+        subtrair()
       } senao {
         esperarTeclaEnter("\n Opção inválida. Tente novamente.") // Mensagem mais amigável
       }
